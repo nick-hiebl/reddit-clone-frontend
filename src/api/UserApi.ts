@@ -6,12 +6,17 @@ export interface User {
 }
 
 export default {
-  async getUsers () {
+  async getUsers(): Promise<User[]> {
     const res = await get('users');
     const us: User[] = await res.json();
     return us;
   },
-  async createUser(username: string) {
+  async getUser(username: string): Promise<User> {
+    const res = await get(`users/${username}`);
+    const user: User = await res.json();
+    return user;
+  },
+  async createUser(username: string): Promise<User> {
     const res = await post('users', { name: username });
     const user: User = await res.json();
     return user;

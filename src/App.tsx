@@ -7,6 +7,7 @@ import {
 import './App.css';
 import AllUsers from 'pages/AllUsers';
 import Navbar from 'components/Navbar';
+import UserPage from 'pages/UserPage';
 
 const App = () => {
 
@@ -16,6 +17,9 @@ const App = () => {
       <Switch>
         <Route path="/users">
           <AllUsers />
+        </Route>
+        <Route path="/user/:username">
+          <UserPage />
         </Route>
       </Switch>
     </BrowserRouter>
